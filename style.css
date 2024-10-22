@@ -1,0 +1,16 @@
+ul {
+  display: flex;
+  gap: 20px;
+  padding-bottom: 10px;
+  font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
+  text-align: center;
+}
+
+li {
+  list-style: none;
+  min-width: 120px;
+}
+
+.header {
+  padding-left: 180px;
+}
