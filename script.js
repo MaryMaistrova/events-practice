@@ -1,28 +1,43 @@
-const liName = document.querySelector('li')
+const liName = document.querySelector('li[title]')
 
 liName.addEventListener('click', () => {
-
+  sortByName();
 })
 
-
-  let arrayAllUL = []
-  allUl = document.querySelectorAll('ul')
+function sortByName() {
+  let arrayAllUL = [];
+  const allUl = document.querySelectorAll('ul');
 
   for (let i = 1; i < allUl.length; i++) {
     let current = allUl[i].querySelectorAll('li')[1].innerText;
-    arrayAllUL.push(current)
+    arrayAllUL.push(current);
   }
 
-  let sortedAZ = arrayAllUL.sort()
+  let sortedAZ = arrayAllUL.sort((a, b) => a.localeCompare(b));
+  let sortedZA = arrayAllUL.sort((a, b) => b.localeCompare(a))
 
-  for (let ii = 0; ii < sortedAZ.length; ii++) {
-    for (let i = 1; i < allUl.length; i++) {
-      if (sortedAZ[ii] === allUl[i].querySelectorAll('li')[1].innerText) {
-        sortedTable = document.createElement('section')
-        sortedTable.appendChild(allUl[i])
-        document.body.appendChild(sortedTable)
+  if (!liName.classList.contains('flowerpower')) {
+    for (let ii = 0; ii < sortedAZ.length; ii++) {
+      for (let i = 1; i < allUl.length; i++) {
+        if (sortedAZ[ii] === allUl[i].querySelectorAll('li')[1].innerText) {
+          let sortedTable = document.createElement('section');
+          sortedTable.appendChild(allUl[i]);
+          document.body.appendChild(sortedTable);
+          liName.classList.add('flowerpower')
+        }
+      }
+    } 
+  } else {
+    for (let ii = 0; ii < sortedZA.length; ii++) {
+      for (let i = 1; i < allUl.length; i++) {
+        if (sortedZA[ii] === allUl[i].querySelectorAll('li')[1].innerText) {
+          let sortedTable = document.createElement('section');
+          sortedTable.appendChild(allUl[i]);
+          document.body.appendChild(sortedTable);
+          liName.classList.remove('flowerpower')
+        }
       }
     }
   }
-
+}
 
