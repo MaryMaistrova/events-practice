@@ -13,8 +13,8 @@ function sortByName() {
     arrayAllUL.push(current);
   }
 
-  let sortedAZ = arrayAllUL.sort((a, b) => a.localeCompare(b));
-  let sortedZA = arrayAllUL.sort((a, b) => b.localeCompare(a))
+  let sortedAZ = arrayAllUL.toSorted((a, b) => a.localeCompare(b));
+  let sortedZA = arrayAllUL.toSorted((a, b) => b.localeCompare(a))
 
   if (!liName.classList.contains('flowerpower')) {
     for (let ii = 0; ii < sortedAZ.length; ii++) {
